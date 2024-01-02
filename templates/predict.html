@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <!-- Include Bootstrap CSS (you may need to adjust the path) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    {% include '_header.html' %}
+    <div class="container mt-5">
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">Upload Image(s) for Prediction</h1>
+                        <form action="/prediction" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="file" name="files" accept="image/*" multiple required class="form-control-file">
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary">Predict</button>
+                            </div>
+                        </form>
+                        {% if error %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Images for Testing</h1>
+        <p class="text-center">Please download these images and upload to application for prediction</p>
+        <div class="row">
+            {% for image in images %}
+                <div class="col-md-2 mb-3">
+                    <div class="card">
+                        <img src="/uploads/{{ image['filename'] }}" class="card-img-top" alt="{{ image['filename'] }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image['description'] }}</h5>
+                            <a href="/download/{{ image['filename'] }}" class="btn btn-primary" download>Download</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Include Bootstrap JS (you may need to adjust the path) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

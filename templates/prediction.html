@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <!-- Include Bootstrap CSS (you may need to adjust the path) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">Prediction Result</h1>
+                        <a href="/predict" class="btn btn-primary mb-3">Predict Another</a>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Class</th>
+                                    <th>Accuracy</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for result in results %}
+                                    <tr>
+                                        <td><img  src="/uploads/{{ result['filename'] }}" alt="{{ result['filename'] }}" class="img-thumbnail" style="max-width: 100px;"></td>
+                                        <td>{{ result['class_name'] }}</td>
+                                        
+                                        <td> <div class="progress">
+                                            <div class="progress-bar bg-{{ 'success' if result['accuracy'] >= 0.8 else 'warning' if result['accuracy'] >= 0.6 else 'danger' }}" role="progressbar" style="width: {{ (result['accuracy'] * 100)|round(2) }}%" aria-valuenow="{{ (result['accuracy'] * 100)|round(2) }}" aria-valuemin="0" aria-valuemax="100">
+                                                {{ (result['accuracy'] * 100)|round(0) }}%
+                                            </div>
+                                        </div></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Include Bootstrap JS (you may need to adjust the path) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

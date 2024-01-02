@@ -1,0 +1,74 @@
+<!-- templates/about_me.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <!-- Include Bootstrap CSS (you may need to adjust the path) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Additional CSS styles for the About Me page -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .jumbotron {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .profile-img {
+            max-width: 200px;
+            border-radius: 50%;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bullet-list i {
+            color: #28a745;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    {% include '_header.html' %}
+    <div class="container">
+        <div class="jumbotron text-center">
+            <img src="/uploads/ubaidullah.jpg" alt="Profile" class="profile-img">
+            <h1 class="display-4">Ubaid Ullah</h1>
+            <p class="lead">MS Student | Full Stack Web Developer</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <ul class="bullet-list">
+                    <li><i class="fas fa-check"></i> Over 8 years of experience in web development</li>
+                    <li><i class="fas fa-check"></i> Currently pursuing an MS degree</li>
+                    <li><i class="fas fa-check"></i> Full Stack Web Developer</li>
+                    <li><i class="fas fa-check"></i> Created a deep learning project with EfficientNetB0 model (98% accuracy)</li>
+                </ul>
+
+                <p>
+                    Feel free to explore my portfolio and projects. If you have any questions or collaboration opportunities, don't hesitate to contact me.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS (you may need to adjust the path) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Include Font Awesome JS (you may need to adjust the path) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</body>
+</html>

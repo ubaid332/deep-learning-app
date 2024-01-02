@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osteoporosis</title>
+    <!-- Include Bootstrap CSS (you may need to adjust the path) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        .card-header {
+            background-color: #007bff; /* Set your desired background color */
+            color: #fff; /* Set the text color for better visibility */
+            cursor: pointer; /* Show pointer on hover */
+        }
+
+        .card-header:hover {
+            background-color: #0056b3; /* Set a darker color on hover if needed */
+            
+        }
+
+        .card-header h3{
+            color: #fff
+        }
+
+        .card-header h3:hover{
+            color: #fff
+        }
+    </style>
+</head>
+<body class="bg-light">
+    {% include '_header.html' %}
+    <div class="container mt-5">
+        <div class="card">
+            
+            <div class="card-header bg-info text-white">
+                <h2 class="mb-0">What is Osteoporosis?</h2>
+            </div>
+            <div class="card-body">
+                <img src="/uploads/osteoporosis.jpg" width="200" class="float-left mr-3">
+                <p class="lead">
+                    Osteoporosis is a medical condition characterized by the weakening of bones, making them fragile and more prone to fractures. It occurs when the density and quality of bone are reduced, leading to a higher risk of fractures, especially in the hip, spine, and wrist. Osteoporosis often progresses silently without noticeable symptoms until a fracture occurs.
+                </p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <!-- Question and Answer Accordion -->
+                <div class="accordion" id="osteoporosisAccordion">
+                    <!-- Question 1 -->
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h3 class="mb-0 btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                
+                                    Preprocessing Steps
+                               
+                            </h3>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#osteoporosisAccordion">
+                            <div class="card-body">
+                                <ol>
+                                    <li>Converted all gray scale (1 channel) images to RGB (3 channel) because it is required for transfer learning model</li>
+                                    <li>Resized all images to 300 x 300 pixels</li>
+                                    <li>Added some normal and osteoporosis images from another dataset to address class imbalance</li>
+                                    <li>To solve the imbalance issue and increase the dataset size, applied data augmentation</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more questions and answers as needed -->
+
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!-- Question and Answer Accordion -->
+                <div class="accordion" id="Accordion2">
+                    <!-- Question 1 -->
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h3 class="mb-0 btn-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseOne">
+                                
+                                    Trained Models
+                               
+                            </h3>
+                        </div>
+
+                        <div id="collapse2" class="collapse show" aria-labelledby="headingTwo" data-parent="#Accordion2">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Model</th>
+                                            <th>Accuracy</th>
+                                            <th>Val. Accuracy</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="text-danger">
+                                            <th>EfficientNetB0 (Used)</th>
+                                            <th>97%</th>
+                                            <th>98%</th>
+                                        </tr>
+                                        <tr>
+                                            <td>ResNet50</td>
+                                            <td>96%</td>
+                                            <td>96%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MobileNet</td>
+                                            <td>96%</td>
+                                            <td>94%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MobileNetV2</td>
+                                            <td>97%</td>
+                                            <td>93%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VGG19</td>
+                                            <td>89%</td>
+                                            <td>92%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VGG16</td>
+                                            <td>92%</td>
+                                            <td>91%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more questions and answers as needed -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS (you may need to adjust the path) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
